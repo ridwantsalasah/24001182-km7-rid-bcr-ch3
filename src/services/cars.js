@@ -17,17 +17,15 @@ exports.getCarById = (id) => {
     return car; // Return the found car
 };
 
-
 exports.createCar = async (data, file) => {
     // Upload file to image kit
     if (file?.image) {
         data.image = await imageUpload(file.image);
     }
-
     return carRepository.createCar(data);
 };
 
-exports.updateCar = async (id, data) => {
+exports.updateCar = async (id, data, file) => {
     // Check if the car exists
     const existingCar = carRepository.getCarById(id);
     if (!existingCar) {

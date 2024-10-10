@@ -74,7 +74,6 @@ exports.validateCreateCar = (req, res, next) => {
         })
         .nullable()
         .optional();
-
     // Validate
     const result = validateBody.safeParse(req.body);
     if (!result.success) {
@@ -88,7 +87,6 @@ exports.validateCreateCar = (req, res, next) => {
         // If validation fails, return error messages
         throw new BadRequestError(resultValidateFiles.error.errors);
     }
-
     next();
 };
 
@@ -113,21 +111,20 @@ exports.validateUpdateCar = (req, res, next) => {
         options: Array.isArray(req.body.options) ? req.body.options : [req.body.options], // Convert options to array
         specs: Array.isArray(req.body.specs) ? req.body.specs : [req.body.specs],
     };
-
+    
     // Validation body schema
     const validateBody = z.object({
         plate: z.string(),
         manufacture: z.string(),
         model: z.string(),
-        image: z.string(),
-        rentPerDay: z.number().positive("Rent per day must be a positive number"),
-        capacity: z.number().positive("Capacity must be a positive number"),
+        rentPerDay: z.number(),
+        capacity: z.number(),
         description: z.string(),
-        availableAt: z.string().datetime("Available at must be a valid date-time"),
+        availableAt: z.string(),
         transmission: z.string(),
         available: z.boolean(),
         type: z.string(),
-        year: z.number().int("Year must be an integer").min(1886, "Year must be greater than 1885"), // Minimum year for a car
+        year: z.number(),
         options: z.array(z.string()),
         specs: z.array(z.string()),
     });
@@ -142,7 +139,6 @@ exports.validateUpdateCar = (req, res, next) => {
     // Proceed to the next middleware or route handler
     next();
 };
-
 
 exports.validateDeleteCarById = (req, res, next) => {
     // Make a validation schema

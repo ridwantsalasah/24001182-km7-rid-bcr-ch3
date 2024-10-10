@@ -843,5 +843,47 @@
             "Rear Window Defroster"
         ],
         "image": "https://ik.imagekit.io/ur63tvn36/car10.min_9KVaGyCEo.jpg"
+    },
+    {
+        "id": "d4a44e87-e4e8-41f7-b709-b8194b988fef",
+        "plate": "IDN-59900",
+        "manufacture": "Honda",
+        "model": "Brio",
+        "rentPerDay": 100000,
+        "capacity": 2,
+        "description": "Electric speed-sensitive variable-assist pwr steering. Steel side-door impact beams. Dual bright exhaust tips.",
+        "availableAt": "09-02-2024",
+        "transmission": "CVT",
+        "available": false,
+        "type": "Wagon",
+        "year": 2015,
+        "options": [
+            "CD (Single Disc)"
+        ],
+        "specs": [
+            "Rear Window Defroster"
+        ],
+        "image": "https://ik.imagekit.io/ur63tvn36/car09.min_e7dCl6uSA.jpg"
+    },
+    {
+        "id": "43676d28-1495-4bd2-97de-96a56d58d79c",
+        "plate": "IDN-59900",
+        "manufacture": "Honda",
+        "model": "Brio",
+        "rentPerDay": 100000,
+        "capacity": 2,
+        "description": "Electric speed-sensitive variable-assist pwr steering. Steel side-door impact beams. Dual bright exhaust tips.",
+        "availableAt": "09-02-2024",
+        "transmission": "CVT",
+        "available": false,
+        "type": "Wagon",
+        "year": 2015,
+        "options": [
+            "CD (Single Disc)"
+        ],
+        "specs": [
+            "Rear Window Defroster"
+        ],
+        "image": "https://ik.imagekit.io/ur63tvn36/car13.min_t0ZHmJGGR.jpg"
     }
 ]
