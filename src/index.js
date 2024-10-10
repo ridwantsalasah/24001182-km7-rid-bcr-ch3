@@ -12,6 +12,7 @@ const port = process.env.PORT || 5000;
 /* We need to activate body parser/reader */
 app.use(express.json());
 
+
 /* We need to read form-body (body parser/reader) (req.files) if you want upload file */
 app.use(
     fileUpload({
@@ -27,6 +28,12 @@ app.use("*", notFoundURLHandler);
 
 // This function is to handle error when API hit
 app.use(errorHandler);
+
+app.get('/', (req, res) => {
+    res.send({ 
+      message: 'Ping Succesfully',
+    });
+  });
 
 /* Run the express.js application */
 app.listen(port, () => {
