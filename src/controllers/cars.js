@@ -17,15 +17,16 @@ exports.getCarById = (req, res, next) => {
     successResponse(res, data);
 };
 
-exports.createCar = (req, res, next) => {
-    const data = carService.createCar(req.body);
+exports.createCar = async (req, res, next) => {
+    // Create the new car
+    const data = await carService.createCar(req.body, req.files);
     successResponse(res, data);
 };
 
-exports.updateCar = (req, res, next) => {
+exports.updateCar = async (req, res, next) => {
     // Get the id from params
     const { id } = req.params;
-    const data = carService.updateCar(id, req.body);
+    const data = await carService.updateCar(id, req.body, req.files);
     successResponse(res, data);
 };
 

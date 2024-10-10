@@ -795,5 +795,53 @@
             "Airbag: Side"
         ],
         "specs": []
+    },
+    {
+        "id": "5332a03b-c98c-4ca0-bf42-393f2b558cea",
+        "plate": "IDN-58900",
+        "manufacture": "Honda",
+        "model": "Civic",
+        "image": "./images/car25.min.jpg",
+        "rentPerDay": 1000000,
+        "capacity": 2,
+        "description": " Electric speed-sensitive variable-assist pwr steering. Steel side-door impact beams. Dual bright exhaust tips.",
+        "availableAt": "2022-03-23T15:49:05.563Z",
+        "transmission": "CVT",
+        "available": false,
+        "type": "Wagon",
+        "year": 2015,
+        "options": [
+            "CD (Single Disc)",
+            "Airbag: Passenger",
+            "A/C: Front",
+            "Power Locks",
+            "Navigation",
+            "Rear Window Defroster",
+            "Rear Window Defroster",
+            "MP3 (Single Disc)",
+            "Airbag: Side"
+        ],
+        "specs": []
+    },
+    {
+        "id": "854cf12c-0808-44a7-afd8-4a08bd04892b",
+        "plate": "IDN-58900",
+        "manufacture": "Honda",
+        "model": "Brio",
+        "rentPerDay": 100000,
+        "capacity": 2,
+        "description": "Electric speed-sensitive variable-assist pwr steering. Steel side-door impact beams. Dual bright exhaust tips.",
+        "availableAt": "09-02-2024",
+        "transmission": "CVT",
+        "available": false,
+        "type": "Wagon",
+        "year": 2015,
+        "options": [
+            "CD (Single Disc)"
+        ],
+        "specs": [
+            "Rear Window Defroster"
+        ],
+        "image": "https://ik.imagekit.io/ur63tvn36/car10.min_9KVaGyCEo.jpg"
     }
 ]

@@ -33,6 +33,17 @@ exports.validateGetCarById = (req, res, next) => {
 };
 
 exports.validateCreateCar = (req, res, next) => {
+    
+    req.body = {
+        ...req.body,
+        rentPerDay: Number(req.body.rentPerDay),   // Convert rentPerDay to number
+        capacity: Number(req.body.capacity),       // Convert capacity to number
+        year: Number(req.body.year),               // Convert year to number
+        available: req.body.available === 'true',  // Convert available to boolean
+        options: Array.isArray(req.body.options) ? req.body.options : [req.body.options], // Convert options to array
+        specs: Array.isArray(req.body.specs) ? req.body.specs : [req.body.specs],
+    };
+    
     // Validation body schema
     const validateBody = z.object({
         plate: z.string(),
@@ -50,11 +61,32 @@ exports.validateCreateCar = (req, res, next) => {
         specs: z.array(z.string()),
     });
 
+    // The file is not required
+    const validateFileBody = z
+        .object({
+            image: z
+                .object({
+                    name: z.string(),
+                    data: z.any(),
+                })
+                .nullable()
+                .optional(),
+        })
+        .nullable()
+        .optional();
+
     // Validate
     const result = validateBody.safeParse(req.body);
     if (!result.success) {
         // If validation fails, return error messages
         throw new BadRequestError(result.error.errors);
+    }
+
+    // Validate
+    const resultValidateFiles = validateFileBody.safeParse(req.files);
+    if (!resultValidateFiles.success) {
+        // If validation fails, return error messages
+        throw new BadRequestError(resultValidateFiles.error.errors);
     }
 
     next();
@@ -71,6 +103,16 @@ exports.validateUpdateCar = (req, res, next) => {
         // If validation fails, return error messages
         throw new BadRequestError(resultValidateParams.error.errors);
     }
+
+    req.body = {
+        ...req.body,
+        rentPerDay: Number(req.body.rentPerDay),   // Convert rentPerDay to number
+        capacity: Number(req.body.capacity),       // Convert capacity to number
+        year: Number(req.body.year),               // Convert year to number
+        available: req.body.available === 'true',  // Convert available to boolean
+        options: Array.isArray(req.body.options) ? req.body.options : [req.body.options], // Convert options to array
+        specs: Array.isArray(req.body.specs) ? req.body.specs : [req.body.specs],
+    };
 
     // Validation body schema
     const validateBody = z.object({

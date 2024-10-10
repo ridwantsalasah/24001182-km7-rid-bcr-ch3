@@ -1,4 +1,5 @@
 const carRepository = require("../repositories/cars");
+const { imageUpload } = require("../utils/image-kit");
 const { NotFoundError, InternalServerError } = require("../utils/request");
 
 exports.getCars = () => {
@@ -17,15 +18,28 @@ exports.getCarById = (id) => {
 };
 
 
-exports.createCar = (data) => {
+exports.createCar = async (data, file) => {
+    // Upload file to image kit
+    if (file?.image) {
+        data.image = await imageUpload(file.image);
+    }
+
     return carRepository.createCar(data);
 };
 
-exports.updateCar = (id, data) => {
+exports.updateCar = async (id, data) => {
     // Check if the car exists
     const existingCar = carRepository.getCarById(id);
     if (!existingCar) {
         throw new NotFoundError("Car Not Found!"); // Corrected error message for clarity
+    }
+
+    if (file?.image) {
+        // If a new file is uploaded, update the Image
+        data.image = await imageUpload(file.image);
+    } else {
+        // Keep the existing profile picture
+        data.image = existingCar.image;
     }
 
     // Attempt to update the car data
