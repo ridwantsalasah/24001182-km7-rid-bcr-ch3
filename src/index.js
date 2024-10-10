@@ -29,12 +29,6 @@ app.use("*", notFoundURLHandler);
 // This function is to handle error when API hit
 app.use(errorHandler);
 
-app.get('/', (req, res) => {
-    res.send({ 
-      message: 'Ping Succesfully',
-    });
-  });
-
 /* Run the express.js application */
 app.listen(port, () => {
     console.log(`The express.js app is runing on port ${port}`);
