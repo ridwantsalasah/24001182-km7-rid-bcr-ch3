@@ -2,8 +2,8 @@ const carRepository = require("../repositories/cars");
 const { imageUpload } = require("../utils/image-kit");
 const { NotFoundError, InternalServerError } = require("../utils/request");
 
-exports.getCars = () => {
-    return carRepository.getCars();
+exports.getCars = (manufacture, model) => {
+    return carRepository.getCars(manufacture, model);
 };
 
 exports.getCarById = (id) => {

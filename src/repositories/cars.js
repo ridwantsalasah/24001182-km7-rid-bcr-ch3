@@ -2,8 +2,24 @@ const fs = require("fs");
 const cars = require("../../data/cars.json");
 const { v4: uuidv4 } = require("uuid");
 
-exports.getCars = () => {
-    return cars;
+exports.getCars = (manufacture, model) => {
+    const searchedCars = cars.filter((car) => {
+        let result = true;
+        if (manufacture) {
+            const isFoundManufacture = car.manufacture
+                .toLowerCase()
+                .includes(manufacture.toLowerCase());
+            result = result && isFoundManufacture;
+        }
+        if (model) {
+            const isFoundModel = car.model
+                .toLowerCase()
+                .includes(model.toLowerCase());
+            result = result && isFoundModel;
+        }
+        return result;    
+    }); 
+    return searchedCars;
 };
 
 exports.getCarById = (id) => {
